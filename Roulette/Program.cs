@@ -57,15 +57,15 @@ namespace Roulette
             RouletteElement ThirtyFive = new RouletteElement("35", 35, "Black");
             RouletteElement ThirtySix = new RouletteElement("36", 36, "Red");
 
-            RouletteElement[] rouletteWheel = {Zero, ZeroZero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten,
+            RouletteElement[] rouletteWheel = {Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten,
                 Eleven, Twelve, Thirteen, Fourteen, Fifteen, Sixteen, Seventeen, Eighteen, Nineteen, Twenty,
                 TwentyOne, TwentyTwo, TwentyThree, TwentyFour, TwentyFive, TwentySix, TwentySeven, TwentyEight, TwentyNine, Thirty,
-                ThirtyOne, ThirtyTwo, ThirtyThree, ThirtyFour, ThirtyFive, ThirtySix
+                ThirtyOne, ThirtyTwo, ThirtyThree, ThirtyFour, ThirtyFive, ThirtySix, ZeroZero
             };
 
             WinningOptions winOpts = new WinningOptions();
 
-            winOpts.SplitTest(rouletteWheel[11]);
+            winOpts.SplitTest(rouletteWheel[1]);
 
 
 

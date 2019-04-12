@@ -234,17 +234,14 @@ namespace Roulette
                 {
                     TopLeftSplit(element);
                     TopSplit(element);
-                    TopRightSplit(element);
                 }
                 //if not in last row
                 if (!IsBottomRow(element))
                 {
                     BottomLeftSplit(element);
                     BottomSplit(element);
-                    BottomRightSplit(element);
                 }
                 //no matter what
-                RightSplit(element);
                 LeftSplit(element);
 
             }
