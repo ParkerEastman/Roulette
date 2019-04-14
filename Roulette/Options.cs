@@ -75,6 +75,15 @@ namespace Roulette
                 TwentyOne, TwentyTwo, TwentyThree, TwentyFour, TwentyFive, TwentySix, TwentySeven, TwentyEight, TwentyNine, Thirty,
                 ThirtyOne, ThirtyTwo, ThirtyThree, ThirtyFour, ThirtyFive, ThirtySix, ZeroZero
             };
+        
+
+        
+        }
+
+        public void WinningBets(RouletteElement element)
+        {
+                WinningOptions wins = new WinningOptions();
+                wins.PossibleWins(element);
         }
 
 
@@ -98,42 +107,39 @@ namespace Roulette
     
     public class WinningOptions
     {
-        //split
 
         //Left
-        public void LeftSplit(RouletteElement element)
+        private void LeftSplit(RouletteElement element)
         {
             Console.WriteLine("Split on the left");
             //Console.WriteLine(element.Value);
             //Console.WriteLine(element.Value - 1);
         }
 
-
         //Right
-        public void RightSplit(RouletteElement element)
+        private void RightSplit(RouletteElement element)
         {
             Console.WriteLine("Split on the right");
             //Console.WriteLine(element.Value);
             //Console.WriteLine(element.Value+1);
         }
 
-
         //Top
-        public void TopSplit(RouletteElement element)
+        private void TopSplit(RouletteElement element)
         {
             Console.WriteLine("Split on the top");
             //Console.WriteLine(element.Value);
             //Console.WriteLine(element.Value-3);
         }
         //Bottom
-        public void BottomSplit(RouletteElement element)
+        private void BottomSplit(RouletteElement element)
         {
             Console.WriteLine("Split on the bottom");
             //Console.WriteLine(element.Value);
             //Console.WriteLine(element.Value+3);
         }
         //TopLeft
-        public void TopLeftSplit(RouletteElement element)
+        private void TopLeftSplit(RouletteElement element)
         {
             Console.WriteLine("Split on the top-left corner");
             //Console.WriteLine(element.Value);
@@ -142,7 +148,7 @@ namespace Roulette
             //Console.WriteLine(element.Value-4);
         }
         //TopRight
-        public void TopRightSplit(RouletteElement element)
+        private void TopRightSplit(RouletteElement element)
         {
             Console.WriteLine("Split on the top-right corner");
             //Console.WriteLine(element.Value);
@@ -151,7 +157,7 @@ namespace Roulette
             //Console.WriteLine(element.Value-3);
         }
         //BottomLeft
-        public void BottomLeftSplit(RouletteElement element)
+        private void BottomLeftSplit(RouletteElement element)
         {
             Console.WriteLine("Split on the bottom-left corner");
             //Console.WriteLine(element.Value);
@@ -160,7 +166,7 @@ namespace Roulette
             //Console.WriteLine(element.Value+3);
         }
         //BottomRight
-        public void BottomRightSplit(RouletteElement element)
+        private void BottomRightSplit(RouletteElement element)
         {
             Console.WriteLine("Split on the bottom-right corner");
             //Console.WriteLine(element.Value);
@@ -169,7 +175,7 @@ namespace Roulette
             //Console.WriteLine(element.Value + 4);
         }
 
-        public bool IsTopRow(RouletteElement element)
+        private bool IsTopRow(RouletteElement element)
         {
             if (element.Value - 3 <= 0)
             {
@@ -179,7 +185,7 @@ namespace Roulette
                 return false;
         }
 
-        public bool IsBottomRow(RouletteElement element)
+        private bool IsBottomRow(RouletteElement element)
         {
             if (element.Value + 3 >= 36)
             {
@@ -190,18 +196,15 @@ namespace Roulette
         }
 
 
-        public void SplitTest(RouletteElement element)
+        private void SplitTest(RouletteElement element)
         {
-            //test if in first column
             if(IsFirstColumn(element))
             {
-                //if not in first row
                 if (!IsTopRow(element))
                 {
                     TopSplit(element);
                     TopRightSplit(element);
                 }
-                //if not in last row
                 if (!IsBottomRow(element))
                 {
                     BottomSplit(element);
@@ -211,7 +214,6 @@ namespace Roulette
                 RightSplit(element);
             }
 
-            //test if in second column
             else if(IsSecondColumn(element))
             {
 
@@ -221,7 +223,6 @@ namespace Roulette
                     TopSplit(element);
                     TopRightSplit(element);
                 }
-                //if not in last row
                 if (!IsBottomRow(element))
                 {
                     BottomLeftSplit(element);
@@ -235,17 +236,13 @@ namespace Roulette
             }
 
                
-           //test if in third column
            else if(IsThirdColumn(element))
             {
-
-                //if not in first row
                 if (!IsTopRow(element))
                 {
                     TopLeftSplit(element);
                     TopSplit(element);
                 }
-                //if not in last row
                 if (!IsBottomRow(element))
                 {
                     BottomLeftSplit(element);
@@ -257,7 +254,7 @@ namespace Roulette
             }
         }
 
-        public bool IsFirstColumn(RouletteElement element)
+        private bool IsFirstColumn(RouletteElement element)
         {
             if((element.Value > 0) && ((element.Value - 1) % 3 == 0))
             {
@@ -270,7 +267,7 @@ namespace Roulette
             }
         }
 
-        public bool IsSecondColumn(RouletteElement element)
+        private bool IsSecondColumn(RouletteElement element)
         {
             if((element.Value > 0) && ((element.Value - 2) % 3 == 0))
             {
@@ -283,9 +280,7 @@ namespace Roulette
             }
         }
 
-
-
-        public bool IsThirdColumn(RouletteElement element)
+        private bool IsThirdColumn(RouletteElement element)
         {
             if((element.Value > 0) && (element.Value % 3 == 0))
             {
@@ -297,8 +292,7 @@ namespace Roulette
             }
         }
 
-        //even/odd
-       public void EvenorOdd(RouletteElement element)
+        private void EvenorOdd(RouletteElement element)
         {
             if(element.Value>0 && element.Value % 2 == 0)
             {
@@ -310,9 +304,7 @@ namespace Roulette
             }
         }
 
-
-        //red/black
-        public void RedorBlack(RouletteElement element)
+        private void RedorBlack(RouletteElement element)
         {
             if(element.Color == "Red")
             {
@@ -324,24 +316,24 @@ namespace Roulette
             }
         }
 
-        public void Column(RouletteElement element)
+        private void Column(RouletteElement element)
         {
             if (IsFirstColumn(element))
             {
-                Console.WriteLine("Column One");
+                Console.WriteLine("Column 1");
             }
             else if (IsSecondColumn(element))
             {
-                Console.WriteLine("Column Two");
+                Console.WriteLine("Column 2");
             }
             else if (IsThirdColumn(element))
             {
-                Console.WriteLine("Column Three");
+                Console.WriteLine("Column 3");
             }
 
         }
 
-        public void LowHigh(RouletteElement element)
+        private void LowHigh(RouletteElement element)
         {
             int set = InGroupsOf(element, 18);
             if(set == 1)
@@ -354,22 +346,22 @@ namespace Roulette
             }
         }
 
-        public void Dozens(RouletteElement element)
+        private void Dozens(RouletteElement element)
         {
                 Console.WriteLine($"Dozen {InGroupsOf(element, 12)}");
         }
 
-        public void Street(RouletteElement element)
+        private void Street(RouletteElement element)
         {
             Console.WriteLine($"Street {InGroupsOf(element, 3)}");
         }
 
-        public void SetOfSix(RouletteElement element)
+        private void SetOfSix(RouletteElement element)
         {
             Console.WriteLine($"Set of Six number {InGroupsOf(element, 6)}");
         }
 
-        public int InGroupsOf(RouletteElement element, int group)  //returns location of subset group
+        private int InGroupsOf(RouletteElement element, int group)  //returns location of subset group
         {
             int inGroup = 0;
             if (element.Value > 0)
@@ -387,6 +379,27 @@ namespace Roulette
             return inGroup;
         }
 
+        public void PossibleWins(RouletteElement element)
+        {
+            Console.WriteLine($"Winning bets for {element.Name} Are: ");
+            Console.WriteLine(element.Value);
+            if (element.Value > 0)
+            {
+                EvenorOdd(element);
+                RedorBlack(element);
+                LowHigh(element);
+                Dozens(element);
+                Column(element);
+                Street(element);
+                SetOfSix(element);
+                SplitTest(element);
+            }
+
+            Console.WriteLine("\n\n\n\n\n");
+        }
 
     }
+
+
+
 }
