@@ -215,7 +215,6 @@ namespace Roulette
             else if(IsSecondColumn(element))
             {
 
-                //if not in first row
                 if (!IsTopRow(element))
                 {
                     TopLeftSplit(element);
@@ -312,12 +311,6 @@ namespace Roulette
         }
 
 
-
-
-
-
-
-
         //red/black
         public void RedorBlack(RouletteElement element)
         {
@@ -331,13 +324,68 @@ namespace Roulette
             }
         }
 
-        //evens/odd
+        public void Column(RouletteElement element)
+        {
+            if (IsFirstColumn(element))
+            {
+                Console.WriteLine("Column One");
+            }
+            else if (IsSecondColumn(element))
+            {
+                Console.WriteLine("Column Two");
+            }
+            else if (IsThirdColumn(element))
+            {
+                Console.WriteLine("Column Three");
+            }
 
+        }
 
-        //row
+        public void LowHigh(RouletteElement element)
+        {
+            int set = InGroupsOf(element, 18);
+            if(set == 1)
+            {
+                Console.WriteLine("Low");
+            }
+            else if(set == 2)
+            {
+                Console.WriteLine("High");
+            }
+        }
 
-        //street
+        public void Dozens(RouletteElement element)
+        {
+                Console.WriteLine($"Dozen {InGroupsOf(element, 12)}");
+        }
 
+        public void Street(RouletteElement element)
+        {
+            Console.WriteLine($"Street {InGroupsOf(element, 3)}");
+        }
+
+        public void SetOfSix(RouletteElement element)
+        {
+            Console.WriteLine($"Set of Six number {InGroupsOf(element, 6)}");
+        }
+
+        public int InGroupsOf(RouletteElement element, int group)  //returns location of subset group
+        {
+            int inGroup = 0;
+            if (element.Value > 0)
+            {
+                if (element.Value % group == 0)
+                {
+                    inGroup = element.Value / group;
+                }
+                else
+                {   //floor to the next group (since the first group is group "Zero")
+                    inGroup = (((element.Value + group) - element.Value % group) / group);
+                }
+
+            }
+            return inGroup;
+        }
 
 
     }

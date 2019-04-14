@@ -24,8 +24,9 @@ namespace Roulette
 
             WinningOptions winOpts = new WinningOptions();
 
-            winOpts.SplitTest(rwInst.rouletteWheel[rand.Next(0, 37)]);
-            winOpts.
+            //winOpts.SplitTest(rwInst.rouletteWheel[rand.Next(0, 37)]);
+            //winOpts.Street(rwInst.rouletteWheel[36]);
+            winOpts.Dozens(rwInst.rouletteWheel[37]);
 
 
            
