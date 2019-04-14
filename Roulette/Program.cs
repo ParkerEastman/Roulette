@@ -25,10 +25,10 @@ namespace Roulette
             WinningOptions winOpts = new WinningOptions();
 
             winOpts.SplitTest(rwInst.rouletteWheel[rand.Next(0, 37)]);
+            winOpts.
 
 
-
-
+           
 
 
         }

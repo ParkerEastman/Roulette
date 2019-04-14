@@ -104,8 +104,8 @@ namespace Roulette
         public void LeftSplit(RouletteElement element)
         {
             Console.WriteLine("Split on the left");
-            Console.WriteLine(element.Value);
-            Console.WriteLine(element.Value - 1);
+            //Console.WriteLine(element.Value);
+            //Console.WriteLine(element.Value - 1);
         }
 
 
@@ -113,8 +113,8 @@ namespace Roulette
         public void RightSplit(RouletteElement element)
         {
             Console.WriteLine("Split on the right");
-            Console.WriteLine(element.Value);
-            Console.WriteLine(element.Value+1);
+            //Console.WriteLine(element.Value);
+            //Console.WriteLine(element.Value+1);
         }
 
 
@@ -122,51 +122,51 @@ namespace Roulette
         public void TopSplit(RouletteElement element)
         {
             Console.WriteLine("Split on the top");
-            Console.WriteLine(element.Value);
-            Console.WriteLine(element.Value-3);
+            //Console.WriteLine(element.Value);
+            //Console.WriteLine(element.Value-3);
         }
         //Bottom
         public void BottomSplit(RouletteElement element)
         {
             Console.WriteLine("Split on the bottom");
-            Console.WriteLine(element.Value);
-            Console.WriteLine(element.Value+3);
+            //Console.WriteLine(element.Value);
+            //Console.WriteLine(element.Value+3);
         }
         //TopLeft
         public void TopLeftSplit(RouletteElement element)
         {
-            Console.WriteLine("Split on the top-left");
-            Console.WriteLine(element.Value);
-            Console.WriteLine(element.Value-1);
-            Console.WriteLine(element.Value-3);
-            Console.WriteLine(element.Value-4);
+            Console.WriteLine("Split on the top-left corner");
+            //Console.WriteLine(element.Value);
+            //Console.WriteLine(element.Value-1);
+            //Console.WriteLine(element.Value-3);
+            //Console.WriteLine(element.Value-4);
         }
         //TopRight
         public void TopRightSplit(RouletteElement element)
         {
-            Console.WriteLine("Split on the top-right");
-            Console.WriteLine(element.Value);
-            Console.WriteLine(element.Value+1);
-            Console.WriteLine(element.Value-2);
-            Console.WriteLine(element.Value-3);
+            Console.WriteLine("Split on the top-right corner");
+            //Console.WriteLine(element.Value);
+            //Console.WriteLine(element.Value+1);
+            //Console.WriteLine(element.Value-2);
+            //Console.WriteLine(element.Value-3);
         }
         //BottomLeft
         public void BottomLeftSplit(RouletteElement element)
         {
-            Console.WriteLine("Split on the bottom-left");
-            Console.WriteLine(element.Value);
-            Console.WriteLine(element.Value-1);
-            Console.WriteLine(element.Value+2);
-            Console.WriteLine(element.Value+3);
+            Console.WriteLine("Split on the bottom-left corner");
+            //Console.WriteLine(element.Value);
+            //Console.WriteLine(element.Value-1);
+            //Console.WriteLine(element.Value+2);
+            //Console.WriteLine(element.Value+3);
         }
         //BottomRight
         public void BottomRightSplit(RouletteElement element)
         {
-            Console.WriteLine("Split on the bottom-right");
-            Console.WriteLine(element.Value);
-            Console.WriteLine(element.Value + 1);
-            Console.WriteLine(element.Value + 3);
-            Console.WriteLine(element.Value + 4);
+            Console.WriteLine("Split on the bottom-right corner");
+            //Console.WriteLine(element.Value);
+            //Console.WriteLine(element.Value + 1);
+            //Console.WriteLine(element.Value + 3);
+            //Console.WriteLine(element.Value + 4);
         }
 
         public bool IsTopRow(RouletteElement element)
@@ -193,7 +193,7 @@ namespace Roulette
         public void SplitTest(RouletteElement element)
         {
             //test if in first column
-            if((element.Value - 1) % 3 == 0)
+            if(IsFirstColumn(element))
             {
                 //if not in first row
                 if (!IsTopRow(element))
@@ -212,7 +212,7 @@ namespace Roulette
             }
 
             //test if in second column
-            else if((element.Value - 2) % 3 == 0)
+            else if(IsSecondColumn(element))
             {
 
                 //if not in first row
@@ -237,7 +237,7 @@ namespace Roulette
 
                
            //test if in third column
-           else if(element.Value % 3 == 0)
+           else if(IsThirdColumn(element))
             {
 
                 //if not in first row
@@ -258,14 +258,81 @@ namespace Roulette
             }
         }
 
+        public bool IsFirstColumn(RouletteElement element)
+        {
+            if((element.Value > 0) && ((element.Value - 1) % 3 == 0))
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool IsSecondColumn(RouletteElement element)
+        {
+            if((element.Value > 0) && ((element.Value - 2) % 3 == 0))
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+
+
+
+        public bool IsThirdColumn(RouletteElement element)
+        {
+            if((element.Value > 0) && (element.Value % 3 == 0))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        //even/odd
+       public void EvenorOdd(RouletteElement element)
+        {
+            if(element.Value>0 && element.Value % 2 == 0)
+            {
+                Console.WriteLine("Even");
+            }
+            else if(element.Value>0 && element.Value % 2 == 1)
+            {
+                Console.WriteLine("Odd");
+            }
+        }
+
+
+
+
 
 
 
 
         //red/black
-
+        public void RedorBlack(RouletteElement element)
+        {
+            if(element.Color == "Red")
+            {
+                Console.WriteLine("Red");
+            }
+            else if(element.Color == "Black")
+            {
+                Console.WriteLine("Black");
+            }
+        }
 
         //evens/odd
+
 
         //row
 
