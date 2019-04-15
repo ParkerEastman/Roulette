@@ -10,7 +10,7 @@ namespace Roulette
     {
         static void Main(string[] args)
         {
-
+            
             doWork();
         }
 
@@ -36,7 +36,7 @@ namespace Roulette
                 {
                     case ConsoleKey.Spacebar:
                         selection = rwInst.rouletteWheel[randSelect];
-                        randSelect = rand.Next(0, 37);
+                        randSelect = rand.Next(0, 38);
                         rwInst.WinningBets(selection);
                         break;
                     case ConsoleKey.Escape:

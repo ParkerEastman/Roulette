@@ -382,7 +382,7 @@ namespace Roulette
         public void PossibleWins(RouletteElement element)
         {
             Console.WriteLine($"Winning bets for {element.Name} Are: ");
-            Console.WriteLine(element.Value);
+            Console.WriteLine(element.Name);
             if (element.Value > 0)
             {
                 EvenorOdd(element);
